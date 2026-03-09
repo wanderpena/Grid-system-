@@ -1,0 +1,384 @@
+// ============================================
+// VARIABLES DE CONFIGURACIÓN SCSS
+// ============================================
+
+@use 'sass:map';
+@use 'sass:math';
+
+// Tipo de grid: 'flexbox' o 'grid'
+$grid-type: 'flexbox' !default;
+
+// Habilitar clases de gap
+$enable-gaps: true !default;
+
+// Habilitar clases de offset
+$enable-offsets: true !default;
+
+// Configuración base
+$grid-columns: 12 !default;
+
+// Breakpoints
+$grid-breakpoints: (
+  'sm': '48rem',
+  'md': '64rem',
+  'lg': '80rem'
+) !default;
+
+// Gap
+$gutters: (
+  0: 0,
+  1: clamp(0.33rem, calc(-0.09vw + 0.35rem), 0.27rem),
+  2: clamp(0.8rem, calc(0.39vw + 0.72rem), 1.06rem),
+  3: clamp(1.56rem, calc(2.13vw + 1.14rem), 3rem),
+  4: clamp(2.44rem, calc(5.27vw + 1.39rem), 6rem),
+  5: clamp(3.05rem, calc(8.04vw + 1.44rem), 8.48rem),
+) !default;
+
+// Tamaños de contenedor
+$container-max: 1280px !default;
+
+// ============================================
+// MIXINS 
+// ============================================
+
+@mixin mq($breakpoint) {
+  @media (min-width: map.get($map: $grid-breakpoints, $key: $breakpoint)) { 
+    @content; 
+  }
+}
+
+// Genera clases de columnas para un breakpoint específico
+@mixin make-col($size, $columns: $grid-columns) {
+  @if $grid-type == 'flexbox' {
+    flex: 0 0 auto;
+    width: math.percentage(math.div($size, $columns));
+  } @else {
+    grid-column: span $size;
+  }
+}
+
+// ============================================
+// CONTENEDOR
+// ============================================
+
+.container {
+  --grid-gutter-x: 1.5rem;
+  --grid-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--grid-gutter-x) * 0.5);
+  padding-left: calc(var(--grid-gutter-x) * 0.5);
+  margin-inline: auto;
+  max-width: $container-max;
+}
+
+.container-fluid {
+  --grid-gutter-x: 1.5rem;
+  --grid-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--grid-gutter-x) * 0.5);
+  padding-left: calc(var(--grid-gutter-x) * 0.5);
+  margin-inline: auto;
+}
+
+// ============================================
+// ROW (FILA)
+// ============================================
+
+.row {
+  @if $grid-type == 'flexbox' {
+    display: flex;
+    flex-wrap: wrap;
+  } @else {
+    display: grid;
+    grid-template-columns: repeat($grid-columns, 1fr);
+  }
+  
+  margin-right: calc(var(--grid-gutter-x) * -0.5);
+  margin-left: calc(var(--grid-gutter-x) * -0.5);
+  margin-top: calc(var(--grid-gutter-y) * -1);
+
+  > * {
+    @if $grid-type == 'flexbox' {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    padding-right: calc(var(--grid-gutter-x) * 0.5);
+    padding-left: calc(var(--grid-gutter-x) * 0.5);
+    margin-top: var(--grid-gutter-y);
+  }
+}
+
+// ============================================
+// COLUMNAS BASE
+// ============================================
+
+// Columna auto
+.col {
+  @if $grid-type == 'flexbox' {
+    flex: 1 0 0%;
+  } @else {
+    grid-column: span 1;
+  }
+}
+
+.col-auto {
+  @if $grid-type == 'flexbox' {
+    flex: 0 0 auto;
+    width: auto;
+  } @else {
+    grid-column: auto;
+  }
+}
+
+// Genera columnas del 1 al 12
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+// ============================================
+// COLUMNAS RESPONSIVAS
+// ============================================
+
+@each $breakpoint, $value in $grid-breakpoints {
+  @include mq($breakpoint) {
+    
+    // Columna auto en breakpoint
+    .col-#{$breakpoint} {
+      @if $grid-type == 'flexbox' {
+        flex: 1 0 0%;
+      } @else {
+        grid-column: span 1;
+      }
+    }
+
+    .col-#{$breakpoint}-auto {
+      @if $grid-type == 'flexbox' {
+        flex: 0 0 auto;
+        width: auto;
+      } @else {
+        grid-column: auto;
+      }
+    }
+
+    // Genera columnas del 1 al 12 para cada breakpoint
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @include make-col($i);
+      }
+    }
+  }
+}
+
+// ============================================
+// OFFSETS (solo para flexbox)
+// ============================================
+
+@if $enable-offsets and $grid-type == 'flexbox' {
+  
+  // Offsets base
+  @for $i from 0 through ($grid-columns - 1) {
+    .offset-#{$i} {
+      margin-left: if($i == 0, 0, math.percentage(math.div($i, $grid-columns)));
+    }
+  }
+
+  // Offsets responsivos
+  @each $breakpoint, $value in $grid-breakpoints {
+    @include mq($breakpoint) {
+      @for $i from 0 through ($grid-columns - 1) {
+        .offset-#{$breakpoint}-#{$i} {
+          margin-left: if($i == 0, 0, math.percentage(math.div($i, $grid-columns)));
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// GAPS (GUTTERS)
+// ============================================
+
+@if $enable-gaps {
+  
+  // Gap horizontal (gutter-x)
+  @each $key, $value in $gutters {
+    .g-#{$key},
+    .gx-#{$key} {
+      --grid-gutter-x: #{$value};
+    }
+    
+    .g-#{$key},
+    .gy-#{$key} {
+      --grid-gutter-y: #{$value};
+    }
+  }
+
+  // Gaps responsivos
+  @each $breakpoint, $bp-value in $grid-breakpoints {
+    @include mq($breakpoint) {
+      @each $key, $value in $gutters {
+        .g-#{$breakpoint}-#{$key},
+        .gx-#{$breakpoint}-#{$key} {
+          --grid-gutter-x: #{$value};
+        }
+        
+        .g-#{$breakpoint}-#{$key},
+        .gy-#{$breakpoint}-#{$key} {
+          --grid-gutter-y: #{$value};
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// UTILIDADES DE ORDEN (FLEXBOX)
+// ============================================
+
+@if $grid-type == 'flexbox' {
+  
+  // Orden base
+  .order-first {
+    order: -1;
+  }
+
+  .order-last {
+    order: $grid-columns + 1;
+  }
+
+  @for $i from 0 through $grid-columns {
+    .order-#{$i} {
+      order: $i;
+    }
+  }
+
+  // Orden responsivo
+  @each $breakpoint, $value in $grid-breakpoints {
+    @include mq($breakpoint) {
+      
+      .order-#{$breakpoint}-first {
+        order: -1;
+      }
+
+      .order-#{$breakpoint}-last {
+        order: $grid-columns + 1;
+      }
+
+      @for $i from 0 through $grid-columns {
+        .order-#{$breakpoint}-#{$i} {
+          order: $i;
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// UTILIDADES ADICIONALES
+// ============================================
+
+// Display utilities para row
+.row-cols-auto > * {
+  @if $grid-type == 'flexbox' {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+@for $i from 1 through 6 {
+  .row-cols-#{$i} > * {
+    @if $grid-type == 'flexbox' {
+      flex: 0 0 auto;
+      width: math.percentage(math.div(1, $i));
+    } @else {
+      grid-column: span math.div($grid-columns, $i);
+    }
+  }
+}
+
+// Row-cols responsivo
+@each $breakpoint, $value in $grid-breakpoints {
+  @include mq($breakpoint) {
+    
+    .row-cols-#{$breakpoint}-auto > * {
+      @if $grid-type == 'flexbox' {
+        flex: 0 0 auto;
+        width: auto;
+      }
+    }
+
+    @for $i from 1 through 6 {
+      .row-cols-#{$breakpoint}-#{$i} > * {
+        @if $grid-type == 'flexbox' {
+          flex: 0 0 auto;
+          width: math.percentage(math.div(1, $i));
+        } @else {
+          grid-column: span math.div($grid-columns, $i);
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// ALIGN ITEMS & JUSTIFY CONTENT
+// ============================================
+
+@if $grid-type == 'flexbox' {
+  
+  // Justify content
+  .justify-content-start { justify-content: flex-start; }
+  .justify-content-end { justify-content: flex-end; }
+  .justify-content-center { justify-content: center; }
+  .justify-content-between { justify-content: space-between; }
+  .justify-content-around { justify-content: space-around; }
+  .justify-content-evenly { justify-content: space-evenly; }
+
+  // Align items
+  .align-items-start { align-items: flex-start; }
+  .align-items-end { align-items: flex-end; }
+  .align-items-center { align-items: center; }
+  .align-items-baseline { align-items: baseline; }
+  .align-items-stretch { align-items: stretch; }
+
+  // Align self
+  .align-self-auto { align-self: auto; }
+  .align-self-start { align-self: flex-start; }
+  .align-self-end { align-self: flex-end; }
+  .align-self-center { align-self: center; }
+  .align-self-baseline { align-self: baseline; }
+  .align-self-stretch { align-self: stretch; }
+
+  // Versiones responsivas
+  @each $breakpoint, $value in $grid-breakpoints {
+    @include mq($breakpoint) {
+      
+      // Justify content responsive
+      .justify-content-#{$breakpoint}-start { justify-content: flex-start; }
+      .justify-content-#{$breakpoint}-end { justify-content: flex-end; }
+      .justify-content-#{$breakpoint}-center { justify-content: center; }
+      .justify-content-#{$breakpoint}-between { justify-content: space-between; }
+      .justify-content-#{$breakpoint}-around { justify-content: space-around; }
+      .justify-content-#{$breakpoint}-evenly { justify-content: space-evenly; }
+
+      // Align items responsive
+      .align-items-#{$breakpoint}-start { align-items: flex-start; }
+      .align-items-#{$breakpoint}-end { align-items: flex-end; }
+      .align-items-#{$breakpoint}-center { align-items: center; }
+      .align-items-#{$breakpoint}-baseline { align-items: baseline; }
+      .align-items-#{$breakpoint}-stretch { align-items: stretch; }
+
+      // Align self responsive
+      .align-self-#{$breakpoint}-auto { align-self: auto; }
+      .align-self-#{$breakpoint}-start { align-self: flex-start; }
+      .align-self-#{$breakpoint}-end { align-self: flex-end; }
+      .align-self-#{$breakpoint}-center { align-self: center; }
+      .align-self-#{$breakpoint}-baseline { align-self: baseline; }
+      .align-self-#{$breakpoint}-stretch { align-self: stretch; }
+    }
+  }
+}
