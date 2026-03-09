@@ -1,0 +1,447 @@
+/* ============================================
+   IMPORTAR GRID SYSTEM
+   ============================================ */
+
+/* Aquí deberías importar tu grid-system.scss compilado */
+/* @import 'grid-system.css'; */
+
+/* Para esta demo, incluimos los estilos básicos del grid manualmente */
+/* En producción, usa el archivo SCSS compilado */
+
+/* Variables CSS para el demo */
+:root {
+  --grid-gutter-x: 1.5rem;
+  --grid-gutter-y: 0;
+  --demo-primary: #3b82f6;
+  --demo-secondary: #8b5cf6;
+  --demo-bg: #f8fafc;
+  --demo-surface: #ffffff;
+  --demo-border: #e2e8f0;
+  --demo-text: #1e293b;
+  --demo-text-muted: #64748b;
+}
+
+/* ============================================
+   ESTILOS BASE DEL DEMO
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--demo-text);
+  background-color: var(--demo-bg);
+}
+
+/* ============================================
+   HEADER Y FOOTER
+   ============================================ */
+
+.demo-header {
+  background: linear-gradient(135deg, var(--demo-primary) 0%, var(--demo-secondary) 100%);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.demo-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.demo-header p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+.demo-footer {
+  background-color: var(--demo-text);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+/* ============================================
+   SECCIONES
+   ============================================ */
+
+.demo-section {
+  padding: 3rem 0;
+}
+
+.demo-section:nth-child(even) {
+  background-color: white;
+}
+
+.demo-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--demo-primary);
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--demo-primary);
+}
+
+.demo-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--demo-text);
+}
+
+.demo-info {
+  background-color: #eff6ff;
+  border-left: 4px solid var(--demo-primary);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--demo-text-muted);
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   GRID DEMO ESTILOS
+   ============================================ */
+
+.demo-row {
+  margin-bottom: 1.5rem;
+}
+
+.demo-row-tall {
+  min-height: 200px;
+  background-color: #f1f5f9;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.demo-col {
+  /* Removemos estilos que podrían interferir */
+}
+
+.demo-content {
+  background-color: var(--demo-primary);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.demo-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Variaciones de colores para diferentes demos */
+.demo-section:nth-child(odd) .demo-content {
+  background-color: var(--demo-primary);
+}
+
+.demo-section:nth-child(even) .demo-content {
+  background-color: var(--demo-secondary);
+}
+
+/* ============================================
+   EJEMPLOS PRÁCTICOS
+   ============================================ */
+
+.demo-header-content {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  padding: 2rem;
+}
+
+.demo-header-content h4 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.demo-product {
+  background-color: white;
+  color: var(--demo-text);
+  border: 2px solid var(--demo-border);
+  transition: all 0.3s;
+}
+
+.demo-product:hover {
+  border-color: var(--demo-primary);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+}
+
+.demo-product .product-img {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.demo-product h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.demo-product p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--demo-primary);
+  margin: 0;
+}
+
+.demo-widget {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.demo-widget h5 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.demo-widget .widget-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   ESTILOS DEL GRID SYSTEM (BÁSICOS)
+   ============================================ */
+
+.container {
+  --grid-gutter-x: 1.5rem;
+  --grid-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--grid-gutter-x) * 0.5);
+  padding-left: calc(var(--grid-gutter-x) * 0.5);
+  margin-inline: auto;
+  max-width: 1280px;
+}
+
+.container-fluid {
+  --grid-gutter-x: 1.5rem;
+  --grid-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--grid-gutter-x) * 0.5);
+  padding-left: calc(var(--grid-gutter-x) * 0.5);
+  margin-inline: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(var(--grid-gutter-x) * -0.5);
+  margin-left: calc(var(--grid-gutter-x) * -0.5);
+  margin-top: calc(var(--grid-gutter-y) * -1);
+}
+
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--grid-gutter-x) * 0.5);
+  padding-left: calc(var(--grid-gutter-x) * 0.5);
+  margin-top: var(--grid-gutter-y);
+}
+
+/* Columnas */
+.col { flex: 1 0 0%; }
+.col-auto { flex: 0 0 auto; width: auto; }
+
+.col-1 { flex: 0 0 auto; width: 8.33333333%; }
+.col-2 { flex: 0 0 auto; width: 16.66666667%; }
+.col-3 { flex: 0 0 auto; width: 25%; }
+.col-4 { flex: 0 0 auto; width: 33.33333333%; }
+.col-5 { flex: 0 0 auto; width: 41.66666667%; }
+.col-6 { flex: 0 0 auto; width: 50%; }
+.col-7 { flex: 0 0 auto; width: 58.33333333%; }
+.col-8 { flex: 0 0 auto; width: 66.66666667%; }
+.col-9 { flex: 0 0 auto; width: 75%; }
+.col-10 { flex: 0 0 auto; width: 83.33333333%; }
+.col-11 { flex: 0 0 auto; width: 91.66666667%; }
+.col-12 { flex: 0 0 auto; width: 100%; }
+
+/* Gaps */
+.g-0, .gx-0 { --grid-gutter-x: 0; }
+.g-0, .gy-0 { --grid-gutter-y: 0; }
+.g-1, .gx-1 { --grid-gutter-x: clamp(0.33rem, calc(-0.09vw + 0.35rem), 0.27rem); }
+.g-1, .gy-1 { --grid-gutter-y: clamp(0.33rem, calc(-0.09vw + 0.35rem), 0.27rem); }
+.g-2, .gx-2 { --grid-gutter-x: clamp(0.8rem, calc(0.39vw + 0.72rem), 1.06rem); }
+.g-2, .gy-2 { --grid-gutter-y: clamp(0.8rem, calc(0.39vw + 0.72rem), 1.06rem); }
+.g-3, .gx-3 { --grid-gutter-x: clamp(1.56rem, calc(2.13vw + 1.14rem), 3rem); }
+.g-3, .gy-3 { --grid-gutter-y: clamp(1.56rem, calc(2.13vw + 1.14rem), 3rem); }
+.g-4, .gx-4 { --grid-gutter-x: clamp(2.44rem, calc(5.27vw + 1.39rem), 6rem); }
+.g-4, .gy-4 { --grid-gutter-y: clamp(2.44rem, calc(5.27vw + 1.39rem), 6rem); }
+.g-5, .gx-5 { --grid-gutter-x: clamp(3.05rem, calc(8.04vw + 1.44rem), 8.48rem); }
+.g-5, .gy-5 { --grid-gutter-y: clamp(3.05rem, calc(8.04vw + 1.44rem), 8.48rem); }
+
+/* Offsets */
+.offset-0 { margin-left: 0; }
+.offset-1 { margin-left: 8.33333333%; }
+.offset-2 { margin-left: 16.66666667%; }
+.offset-3 { margin-left: 25%; }
+.offset-4 { margin-left: 33.33333333%; }
+.offset-5 { margin-left: 41.66666667%; }
+.offset-6 { margin-left: 50%; }
+.offset-7 { margin-left: 58.33333333%; }
+.offset-8 { margin-left: 66.66666667%; }
+.offset-9 { margin-left: 75%; }
+.offset-10 { margin-left: 83.33333333%; }
+.offset-11 { margin-left: 91.66666667%; }
+
+/* Orden */
+.order-first { order: -1; }
+.order-last { order: 13; }
+.order-0 { order: 0; }
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+.order-4 { order: 4; }
+.order-5 { order: 5; }
+
+/* Alineación */
+.justify-content-start { justify-content: flex-start; }
+.justify-content-end { justify-content: flex-end; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.justify-content-around { justify-content: space-around; }
+.justify-content-evenly { justify-content: space-evenly; }
+
+.align-items-start { align-items: flex-start; }
+.align-items-end { align-items: flex-end; }
+.align-items-center { align-items: center; }
+.align-items-baseline { align-items: baseline; }
+.align-items-stretch { align-items: stretch; }
+
+.align-self-auto { align-self: auto; }
+.align-self-start { align-self: flex-start; }
+.align-self-end { align-self: flex-end; }
+.align-self-center { align-self: center; }
+.align-self-baseline { align-self: baseline; }
+.align-self-stretch { align-self: stretch; }
+
+/* Row cols */
+.row-cols-1 > * { flex: 0 0 auto; width: 100%; }
+.row-cols-2 > * { flex: 0 0 auto; width: 50%; }
+.row-cols-3 > * { flex: 0 0 auto; width: 33.33333333%; }
+.row-cols-4 > * { flex: 0 0 auto; width: 25%; }
+.row-cols-5 > * { flex: 0 0 auto; width: 20%; }
+.row-cols-6 > * { flex: 0 0 auto; width: 16.66666667%; }
+.row-cols-auto > * { flex: 0 0 auto; width: auto; }
+
+/* ============================================
+   BREAKPOINT: SM (48rem / 768px)
+   ============================================ */
+
+@media (min-width: 48rem) {
+  .col-sm { flex: 1 0 0%; }
+  .col-sm-auto { flex: 0 0 auto; width: auto; }
+  .col-sm-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .col-sm-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .col-sm-3 { flex: 0 0 auto; width: 25%; }
+  .col-sm-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .col-sm-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .col-sm-6 { flex: 0 0 auto; width: 50%; }
+  .col-sm-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .col-sm-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .col-sm-9 { flex: 0 0 auto; width: 75%; }
+  .col-sm-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .col-sm-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .col-sm-12 { flex: 0 0 auto; width: 100%; }
+
+  .offset-sm-0 { margin-left: 0; }
+  .offset-sm-1 { margin-left: 8.33333333%; }
+  .offset-sm-2 { margin-left: 16.66666667%; }
+  .offset-sm-3 { margin-left: 25%; }
+  .offset-sm-4 { margin-left: 33.33333333%; }
+  .offset-sm-5 { margin-left: 41.66666667%; }
+  .offset-sm-6 { margin-left: 50%; }
+
+  .row-cols-sm-1 > * { flex: 0 0 auto; width: 100%; }
+  .row-cols-sm-2 > * { flex: 0 0 auto; width: 50%; }
+  .row-cols-sm-3 > * { flex: 0 0 auto; width: 33.33333333%; }
+  .row-cols-sm-4 > * { flex: 0 0 auto; width: 25%; }
+  .row-cols-sm-auto > * { flex: 0 0 auto; width: auto; }
+}
+
+/* ============================================
+   BREAKPOINT: MD (64rem / 1024px)
+   ============================================ */
+
+@media (min-width: 64rem) {
+  .col-md { flex: 1 0 0%; }
+  .col-md-auto { flex: 0 0 auto; width: auto; }
+  .col-md-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .col-md-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .col-md-3 { flex: 0 0 auto; width: 25%; }
+  .col-md-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .col-md-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .col-md-6 { flex: 0 0 auto; width: 50%; }
+  .col-md-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .col-md-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .col-md-9 { flex: 0 0 auto; width: 75%; }
+  .col-md-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .col-md-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .col-md-12 { flex: 0 0 auto; width: 100%; }
+
+  .offset-md-0 { margin-left: 0; }
+  .offset-md-1 { margin-left: 8.33333333%; }
+  .offset-md-2 { margin-left: 16.66666667%; }
+  .offset-md-3 { margin-left: 25%; }
+  .offset-md-4 { margin-left: 33.33333333%; }
+  .offset-md-5 { margin-left: 41.66666667%; }
+  .offset-md-6 { margin-left: 50%; }
+
+  .row-cols-md-1 > * { flex: 0 0 auto; width: 100%; }
+  .row-cols-md-2 > * { flex: 0 0 auto; width: 50%; }
+  .row-cols-md-3 > * { flex: 0 0 auto; width: 33.33333333%; }
+  .row-cols-md-4 > * { flex: 0 0 auto; width: 25%; }
+  .row-cols-md-auto > * { flex: 0 0 auto; width: auto; }
+}
+
+/* ============================================
+   BREAKPOINT: LG (80rem / 1280px)
+   ============================================ */
+
+@media (min-width: 80rem) {
+  .col-lg { flex: 1 0 0%; }
+  .col-lg-auto { flex: 0 0 auto; width: auto; }
+  .col-lg-1 { flex: 0 0 auto; width: 8.33333333%; }
+  .col-lg-2 { flex: 0 0 auto; width: 16.66666667%; }
+  .col-lg-3 { flex: 0 0 auto; width: 25%; }
+  .col-lg-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .col-lg-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .col-lg-6 { flex: 0 0 auto; width: 50%; }
+  .col-lg-7 { flex: 0 0 auto; width: 58.33333333%; }
+  .col-lg-8 { flex: 0 0 auto; width: 66.66666667%; }
+  .col-lg-9 { flex: 0 0 auto; width: 75%; }
+  .col-lg-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .col-lg-11 { flex: 0 0 auto; width: 91.66666667%; }
+  .col-lg-12 { flex: 0 0 auto; width: 100%; }
+
+  .offset-lg-0 { margin-left: 0; }
+  .offset-lg-1 { margin-left: 8.33333333%; }
+  .offset-lg-2 { margin-left: 16.66666667%; }
+  .offset-lg-3 { margin-left: 25%; }
+  .offset-lg-4 { margin-left: 33.33333333%; }
+  .offset-lg-5 { margin-left: 41.66666667%; }
+  .offset-lg-6 { margin-left: 50%; }
+
+  .row-cols-lg-1 > * { flex: 0 0 auto; width: 100%; }
+  .row-cols-lg-2 > * { flex: 0 0 auto; width: 50%; }
+  .row-cols-lg-3 > * { flex: 0 0 auto; width: 33.33333333%; }
+  .row-cols-lg-4 > * { flex: 0 0 auto; width: 25%; }
+  .row-cols-lg-auto > * { flex: 0 0 auto; width: auto; }
+}
