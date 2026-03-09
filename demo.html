@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid System - Demo Completa</title>
+  <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body>
+  
+  <header class="demo-header">
+    <div class="container">
+      <h1>Sistema de Grid SCSS</h1>
+      <p>Demostración completa de todas las funcionalidades</p>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Sección 1: Columnas Básicas -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>1. Columnas Básicas</h2>
+        
+        <h3>Columnas de ancho igual</h3>
+        <div class="row demo-row">
+          <div class="col demo-col">
+            <div class="demo-content">col</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">col</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">col</div>
+          </div>
+        </div>
+
+        <h3>Columnas de tamaño específico</h3>
+        <div class="row demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-8 demo-col">
+            <div class="demo-content">col-8</div>
+          </div>
+        </div>
+
+        <div class="row demo-row">
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+          <div class="col-6 demo-col">
+            <div class="demo-content">col-6</div>
+          </div>
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+        </div>
+
+        <h3>Columnas auto</h3>
+        <div class="row demo-row">
+          <div class="col-auto demo-col">
+            <div class="demo-content">col-auto (ajustado al contenido)</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">col (ocupa el resto)</div>
+          </div>
+          <div class="col-auto demo-col">
+            <div class="demo-content">col-auto</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 2: Columnas Responsivas -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>2. Columnas Responsivas</h2>
+        <p class="demo-info">Redimensiona la ventana para ver los cambios</p>
+        
+        <div class="row demo-row">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 demo-col">
+            <div class="demo-content">
+              <strong>12 / 6 / 4 / 3</strong><br>
+              Mobile: 100%<br>
+              Small: 50%<br>
+              Medium: 33%<br>
+              Large: 25%
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 demo-col">
+            <div class="demo-content">
+              <strong>12 / 6 / 4 / 3</strong><br>
+              Mobile: 100%<br>
+              Small: 50%<br>
+              Medium: 33%<br>
+              Large: 25%
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 demo-col">
+            <div class="demo-content">
+              <strong>12 / 6 / 4 / 3</strong><br>
+              Mobile: 100%<br>
+              Small: 50%<br>
+              Medium: 33%<br>
+              Large: 25%
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 demo-col">
+            <div class="demo-content">
+              <strong>12 / 6 / 4 / 3</strong><br>
+              Mobile: 100%<br>
+              Small: 50%<br>
+              Medium: 33%<br>
+              Large: 25%
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 3: Gaps (Espaciado) -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>3. Gaps (Espaciado)</h2>
+        
+        <h3>Sin gap (g-0)</h3>
+        <div class="row g-0 demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>Gap pequeño (g-1)</h3>
+        <div class="row g-1 demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>Gap medio (g-3)</h3>
+        <div class="row g-3 demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>Gap grande (g-5)</h3>
+        <div class="row g-5 demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>Gap horizontal (gx-4)</h3>
+        <div class="row gx-4 demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>Gap vertical (gy-4)</h3>
+        <div class="row gy-4 demo-row">
+          <div class="col-12 demo-col">
+            <div class="demo-content">col-12</div>
+          </div>
+          <div class="col-12 demo-col">
+            <div class="demo-content">col-12</div>
+          </div>
+          <div class="col-12 demo-col">
+            <div class="demo-content">col-12</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 4: Offsets -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>4. Offsets (Desplazamiento)</h2>
+        
+        <h3>Offset 4</h3>
+        <div class="row demo-row">
+          <div class="col-4 offset-4 demo-col">
+            <div class="demo-content">col-4 offset-4 (centrado)</div>
+          </div>
+        </div>
+
+        <h3>Offset 3</h3>
+        <div class="row demo-row">
+          <div class="col-3 offset-3 demo-col">
+            <div class="demo-content">col-3 offset-3</div>
+          </div>
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+        </div>
+
+        <h3>Offset responsivo</h3>
+        <div class="row demo-row">
+          <div class="col-12 col-md-6 offset-md-3 demo-col">
+            <div class="demo-content">
+              col-12 col-md-6 offset-md-3<br>
+              (Centrado solo en medium y superior)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 5: Row Cols -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>5. Row Cols (Columnas Uniformes)</h2>
+        
+        <h3>Row cols 3</h3>
+        <div class="row row-cols-3 g-2 demo-row">
+          <div class="col demo-col">
+            <div class="demo-content">Item 1</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Item 2</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Item 3</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Item 4</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Item 5</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Item 6</div>
+          </div>
+        </div>
+
+        <h3>Row cols responsivo (1 → 2 → 3 → 4)</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 demo-row">
+          <div class="col demo-col">
+            <div class="demo-content">Card 1</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Card 2</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Card 3</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Card 4</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Card 5</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Card 6</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Card 7</div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content">Card 8</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 6: Orden -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>6. Orden de Columnas</h2>
+        
+        <h3>Orden personalizado</h3>
+        <div class="row demo-row">
+          <div class="col order-3 demo-col">
+            <div class="demo-content">
+              <strong>Primero en HTML</strong><br>
+              order-3 (tercero visualmente)
+            </div>
+          </div>
+          <div class="col order-1 demo-col">
+            <div class="demo-content">
+              <strong>Segundo en HTML</strong><br>
+              order-1 (primero visualmente)
+            </div>
+          </div>
+          <div class="col order-2 demo-col">
+            <div class="demo-content">
+              <strong>Tercero en HTML</strong><br>
+              order-2 (segundo visualmente)
+            </div>
+          </div>
+        </div>
+
+        <h3>Order first / last</h3>
+        <div class="row demo-row">
+          <div class="col demo-col">
+            <div class="demo-content">Primero (sin order)</div>
+          </div>
+          <div class="col order-last demo-col">
+            <div class="demo-content">order-last</div>
+          </div>
+          <div class="col order-first demo-col">
+            <div class="demo-content">order-first</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 7: Alineación Vertical -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>7. Alineación Vertical (Align Items)</h2>
+        
+        <h3>align-items-start</h3>
+        <div class="row align-items-start demo-row demo-row-tall">
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 1</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 2</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 3</div>
+          </div>
+        </div>
+
+        <h3>align-items-center</h3>
+        <div class="row align-items-center demo-row demo-row-tall">
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 1</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 2</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 3</div>
+          </div>
+        </div>
+
+        <h3>align-items-end</h3>
+        <div class="row align-items-end demo-row demo-row-tall">
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 1</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 2</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">Columna 3</div>
+          </div>
+        </div>
+
+        <h3>align-self (individual)</h3>
+        <div class="row demo-row demo-row-tall">
+          <div class="col-4 align-self-start demo-col">
+            <div class="demo-content">align-self-start</div>
+          </div>
+          <div class="col-4 align-self-center demo-col">
+            <div class="demo-content">align-self-center</div>
+          </div>
+          <div class="col-4 align-self-end demo-col">
+            <div class="demo-content">align-self-end</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 8: Alineación Horizontal -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>8. Alineación Horizontal (Justify Content)</h2>
+        
+        <h3>justify-content-start</h3>
+        <div class="row justify-content-start demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>justify-content-center</h3>
+        <div class="row justify-content-center demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>justify-content-end</h3>
+        <div class="row justify-content-end demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>justify-content-between</h3>
+        <div class="row justify-content-between demo-row">
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+          <div class="col-4 demo-col">
+            <div class="demo-content">col-4</div>
+          </div>
+        </div>
+
+        <h3>justify-content-around</h3>
+        <div class="row justify-content-around demo-row">
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+        </div>
+
+        <h3>justify-content-evenly</h3>
+        <div class="row justify-content-evenly demo-row">
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+          <div class="col-3 demo-col">
+            <div class="demo-content">col-3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 9: Ejemplos Prácticos -->
+    <section class="demo-section">
+      <div class="container">
+        <h2>9. Ejemplos Prácticos</h2>
+        
+        <h3>Layout Blog/Artículo</h3>
+        <div class="row g-4">
+          <div class="col-12 demo-col">
+            <div class="demo-content demo-header-content">
+              <h4>Header del Artículo</h4>
+            </div>
+          </div>
+          <div class="col-12 col-lg-8 demo-col">
+            <div class="demo-content">
+              <h4>Contenido Principal</h4>
+              <p>Aquí iría el contenido del artículo...</p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 demo-col">
+            <div class="demo-content">
+              <h4>Sidebar</h4>
+              <p>Widgets, anuncios, artículos relacionados...</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 3rem;">Grid de Productos</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+          <div class="col demo-col">
+            <div class="demo-content demo-product">
+              <div class="product-img">🎮</div>
+              <h5>Producto 1</h5>
+              <p>$99.99</p>
+            </div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content demo-product">
+              <div class="product-img">📱</div>
+              <h5>Producto 2</h5>
+              <p>$149.99</p>
+            </div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content demo-product">
+              <div class="product-img">💻</div>
+              <h5>Producto 3</h5>
+              <p>$899.99</p>
+            </div>
+          </div>
+          <div class="col demo-col">
+            <div class="demo-content demo-product">
+              <div class="product-img">🎧</div>
+              <h5>Producto 4</h5>
+              <p>$79.99</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 3rem;">Dashboard Layout</h3>
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-lg-3 demo-col">
+            <div class="demo-content demo-widget">
+              <h5>Widget 1</h5>
+              <div class="widget-value">1,234</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 demo-col">
+            <div class="demo-content demo-widget">
+              <h5>Widget 2</h5>
+              <div class="widget-value">5,678</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 demo-col">
+            <div class="demo-content demo-widget">
+              <h5>Widget 3</h5>
+              <div class="widget-value">9,012</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 demo-col">
+            <div class="demo-content demo-widget">
+              <h5>Widget 4</h5>
+              <div class="widget-value">3,456</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="demo-footer">
+    <div class="container">
+      <p>Sistema de Grid SCSS - Demo Completa © 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
